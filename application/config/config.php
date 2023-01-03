@@ -23,8 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://192.168.29.134/projects/winxtreme/';
-// $config['base_url'] = 'http://dataconcentrix.appteq.in/';
+$config['base_url'] = 'http://localhost/project/winxtreme/';
 
 /*
 |--------------------------------------------------------------------------

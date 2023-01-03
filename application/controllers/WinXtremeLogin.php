@@ -35,6 +35,12 @@ class WinXtremeLogin extends CI_Controller {
 	public function resendmail(){
 
 	}
+	
+	// public function destroy()
+	// {	 
+	// 	$this->session->sess_destroy(); 
+	// 	redirect('WinXtremeLogin/login'); 
+	// }
 
 
 
