@@ -55,6 +55,7 @@ class WinXtremeLogin extends CI_Controller {
 	public function loginFunction()
 	{	
 	    $data = $this->input->post();
+	    // print_r($data); exit;
 	    $success = $this->WinXtremeModel->loginFunctionn($data);
 	    if($success['status'] == "success"){
 	    	$user = $success['data'][0];
@@ -70,7 +71,6 @@ class WinXtremeLogin extends CI_Controller {
 	public function register() {
 	    $data = $this->input->post();
 	    $success = $this->WinXtremeModel->registerr($data); 
-	    // print_r($success); exit;
 	    if($success['statusCode'] == 200){
 	    	$data = $success['data'];
 	    	$this->sendMail($data);
@@ -97,12 +97,12 @@ class WinXtremeLogin extends CI_Controller {
 		// SMTP configuration
 		$mail->isSMTP();
 		$mail->Host = 'smtp.gmail.com';
-		$mail->Port = 465;
-		$mail->SMTPDebug = 2;
+		$mail->Port = 587;
+		$mail->SMTPDebug = 1;
 		$mail->SMTPAuth = true;
 		$mail->Username = 'usedfortestingg@gmail.com'; //your mail id
 		$mail->Password = 'wthokqjkkghttyno'; // pass
-		$mail->SMTPSecure = 'ssl';
+		$mail->SMTPSecure = 'tls';
 		$mail->setFrom('winxtreme@gmail.com', 'WinXtreme');
 		$mail->addAddress($data['email'], $data['username']);
 		$mail->Subject = $subject;
@@ -122,8 +122,8 @@ class WinXtremeLogin extends CI_Controller {
 		}
 		else
 		{
-			 // print_r($mail->ErrorInfo); exit;
-		 	redirect('WinXtremeLogin/login');
+			 print_r($mail->ErrorInfo); exit;
+		 	// redirect('WinXtremeLogin/login');
 		}
 	}
 

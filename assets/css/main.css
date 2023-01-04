@@ -4007,11 +4007,17 @@ div[class*='col']:nth-child(even) > .faq-item {
     width: 100%!important;
 }
 
-@media (max-width: 1199px) {
-    .single-select {
-        width: 150px;
-        height: 150px;
-    }
+.col-7.single-select {
+    width: 20%!important;
+    height: auto!important;\
+    margin-top: 25px
+}
+
+
+.single-select {
+    width: 33.33%!important;
+    height: auto!important;
+    margin-bottom: 20px
 }
 
 @media (max-width: 450px) {

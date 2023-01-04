@@ -3,6 +3,12 @@
 <html lang="en">
  
     <?php require('component/head.php') ?>
+    <style>
+        .game-score{
+            box-shadow: -3.828px -3.828px 6px 0px rgb(255 200 39 / 12%), 3px 5px 8px 0px rgb(255 82 1 / 21%);
+            text-align: center;
+        }
+    </style>
     <body data-bs-spy="scroll" data-bs-offset="170" data-bs-target=".privacy-policy-sidebar-menu">
 
         <div class="overlay"></div>
@@ -92,52 +98,59 @@
 
                                 <div class="row mtfont">
                                     <div class="col-6">
-                                        <h3 class="mb-4 text-center">Current Balance  <span class="base--color">Rs. <span class="bal">100</span></span></h3>
+                                        <h3 class="mb-4 text-center">Current Balance  <span class="base--color">Rs. <span class="user_balance">100</span></span></h3>
                                     </div>
                                     <div class="col-6">
-                                        <h3 class="mb-4 text-center">Game Amount   <span class="base--color">Rs. <span class="bal">100</span></span></h3>
+                                        <h3 class="mb-4 text-center">Game Amount   <span class="base--color">Rs. <span class="game_amount">0</span></span></h3>
                                     </div>
                                 </div> 
 
-                            <div class="form-group"> 
-                                <small class="form-text text-muted"><i class="fas fa-info-circle mr-2"></i>Minimum: ₹ 10 &nbsp &nbsp <span class="text-warning">Win Amount:&nbsp  Winner - 1.9x &nbsp   Runner - 0.50x</span></small>
-                            </div>
 
-                            <div class="form-group mt-4 mt-sm-5 justify-content-center d-flex flex-wrap justify-content-between">
+
+                            <div class="form-group justify-content-center d-flex flex-wrap justify-content-between">
                                 <div class="row">
-                                    <div class="col-4 single-select head gmimg active">
+                                    <div class="col-4 single-select game-side head gmimg active" data-active="rock">
                                         <img src="<?= base_url() ?>assets/images/game/rock.png" alt="game-image">
+                                        <p class="game-score rock">0</p>
                                     </div>
-                                    <div class="col-4 single-select tail gmimg">
+                                    <div class="col-4 single-select game-side tail gmimg" data-active="paper">
                                         <img src="<?= base_url() ?>assets/images/game/paper.png" alt="game-image">
+                                        <p class="game-score paper">0</p>
                                     </div>
-                                    <div class="col-4 single-select tail gmimg">
+                                    <div class="col-4 single-select game-side tail gmimg" data-active="scissor">
                                         <img src="<?= base_url() ?>assets/images/game/scissor.png" alt="game-image">
+                                        <p class="game-score scissor">0</p>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="form-group mt-4 mt-sm-5 justify-content-center d-flex flex-wrap justify-content-between">
+                            <div class="form-group mt-sm-5 justify-content-center d-flex flex-wrap justify-content-between">
                                 <div class="row">
-                                    <div class="col-1"></div>
-                                    <div class="col-2 single-select head gmimg active">
+                                    <!-- <div class="col-1"></div> -->
+                                    <div class="col-7 single-select head coin gmimg" data-value="10">
                                         <img src="<?= base_url() ?>assets/images/game/10rps.png" alt="game-image">
                                     </div>
-                                    <div class="col-2 single-select tail gmimg">
+                                    <div class="col-7 single-select tail coin gmimg" data-value="50">
                                         <img src="<?= base_url() ?>assets/images/game/50rps.png" alt="game-image">
                                     </div>
-                                    <div class="col-2 single-select tail gmimg">
+                                    <div class="col-7 single-select tail coin gmimg" data-value="100">
                                         <img src="<?= base_url() ?>assets/images/game/100rps.png" alt="game-image">
                                     </div>
-                                    <div class="col-2 single-select head gmimg active">
+                                    <div class="col-7 single-select head coin gmimg" data-value="500">
                                         <img src="<?= base_url() ?>assets/images/game/500rps.png" alt="game-image">
                                     </div>
-                                    <div class="col-2 single-select head gmimg active">
+                                    <div class="col-7 single-select head coin gmimg" data-value="1000">
                                         <img src="<?= base_url() ?>assets/images/game/1000rps.png" alt="game-image">
                                     </div>
                                 </div>
                             </div>
                             
+
+                            <div class="row mt-4">
+                                <div class="col-md-6 col-6 text-center"> <span class="mt-3 btn btn-link btn--sm radius-5"> Winner - 1.90x </span> </div>
+                                <div class="col-md-6 col-6 text-center"> <span class="mt-3 btn btn-link btn--sm radius-5"> Runner - 0.50x </span> </div>
+                            </div>
+
                             <div class="mt-5 text-center">
                               
                                 <a data-bs-toggle="modal" data-bs-target="#exampleModalCenter" class="mt-3 btn btn-link btn--sm radius-5">Game Instruction <i class="las la-info-circle"></i></a>
@@ -270,7 +283,7 @@
 
 <!-- main js -->
 <script src="<?php echo base_url() ?>assets/js/main.js"></script>  
+<script src="<?php echo base_url() ?>custom/game_page.js"></script>  
 </body>
 
-<!-- Mirrored from template.viserlab.com/WinXtreme/demo/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Dec 2022 15:08:31 GMT -->
 </html>

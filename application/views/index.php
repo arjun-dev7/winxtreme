@@ -59,7 +59,7 @@
         </ul>
       </div>
     </div>
-  </div>
+  </div> 
 </section>
 <!-- inner hero section end -->
 
