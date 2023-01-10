@@ -101,6 +101,10 @@ class WinXtreme extends CI_Controller {
 		$this->load->view("game_page"); 
 	} 
 
+	public function getFinalResult(){
+		return true;
+	}
+
 
 	/*public function index()
 	{	

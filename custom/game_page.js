@@ -5,6 +5,7 @@ $(document).ready(function() {
     var scissor = 0;
     var total = 0;
     var active = 'rock';
+    var time_limit = 30;
 
     $('.game-side').click(function(){
         active = $(this).data('active');
@@ -29,6 +30,21 @@ $(document).ready(function() {
     });
 
     
+    $('.close_btn').click(function(){
+        let symbol = $(this).data('key');
+        if(symbol == 'rock'){
+            rock = 0; 
+            $('.rock').html(rock);
+        }
+        else if(symbol == 'paper'){
+            paper = 0; 
+            $('.paper').html(paper);
+        }
+        else{
+            scissor = 0; 
+            $('.scissor').html(scissor);
+        }  
+    });
     $('#formSubmit').click(function(){
         $('.invalid-feedback').hide();   
         if($('#mission').val()=="")
@@ -51,39 +67,34 @@ $(document).ready(function() {
             updateAbout();
         }       
     });
-    
-    function updateAbout()
+
+    var time_out = setInterval(() => { 
+      if(time_limit == 0) {
+        $('#timer').html('Time Over');
+        getFinalResult();
+        time_limit = 30;
+      } 
+      else {  
+        if(time_limit < 10) {
+          time_limit = 0 + '' + time_limit;
+        }
+        $('#timer').html(time_limit);
+        time_limit -= 1; 
+      }
+    }, 1000);
+
+
+    function getFinalResult()
     {       
-        var form = $('#formModal')[0];
-        var data = new FormData(form);
-        if(aboutJSON.length == 0)
-        {
-            data.append('about_id', '');
-            data.append('mode', 'new');
-        }
-        else
-        {
-            data.append('about_id', aboutJSON[0].about_id);
-            data.append('mode', 'update');
-        }
         request = $.ajax({
             type: "POST",
             enctype: 'multipart/form-data',
-            url: base_URL+'admin/Controlbase/updateAbout',
-            data: data,
+            url: base_URL+'WinXtreme/getFinalResult',
+            data: {test:'msg'},
             processData: false,
             contentType: false,
             success: function (data) {
-                var Result;
-                Result = $.parseJSON(data);
-                console.log(Result.statusCode);
-                $.alert({
-                    title: Result.status+'!',
-                    content: Result.message,
-                });
-                request.done(function (){    
-                    refreshDetails();       
-                }); 
+               console.log('hai');
             },
             error: function () {
             }

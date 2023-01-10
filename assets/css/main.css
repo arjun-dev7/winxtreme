@@ -4009,8 +4009,21 @@ div[class*='col']:nth-child(even) > .faq-item {
 
 .col-7.single-select {
     width: 20%!important;
-    height: auto!important;\
+    height: auto!important;
     margin-top: 25px
+}
+
+.close_btn{
+        float: right;
+    background: red;
+    height: 20px;
+    line-height: 19px;
+    /* padding: 8px; */
+    width: 20px;
+    border-radius: 17px;
+    margin-top: 4px;
+    margin-right: 4px;
+    cursor: pointer;
 }
 
 

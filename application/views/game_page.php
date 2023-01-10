@@ -82,12 +82,7 @@
             <div class="row gy-5">
                 <div class="col-lg-6">
                     <div class="game-details-left">
-                        <div id="coin-flip-cont">
-                            <div class="coins-wrapper">
-                                <div class="front"><img src="<?= base_url() ?>assets/images/game/head.png" alt="game"></div>
-                                <div class="back"><img src="<?= base_url() ?>assets/images/game/tail.png" alt="game"></div>
-                            </div>
-                        </div>
+                        <h1 id="timer">30</h1>
                         <div class="cd-ft"></div>
                     </div>
                 </div>
@@ -111,15 +106,15 @@
                                 <div class="row">
                                     <div class="col-4 single-select game-side head gmimg active" data-active="rock">
                                         <img src="<?= base_url() ?>assets/images/game/rock.png" alt="game-image">
-                                        <p class="game-score rock">0</p>
+                                        <p class="game-score"> <span class="rock">0</span>  <span data-key="rock" class="close_btn">x</span>  </p>
                                     </div>
                                     <div class="col-4 single-select game-side tail gmimg" data-active="paper">
                                         <img src="<?= base_url() ?>assets/images/game/paper.png" alt="game-image">
-                                        <p class="game-score paper">0</p>
+                                        <p class="game-score"><span class="paper">0</span>  <span data-key="paper" class="close_btn">x</span> </p>
                                     </div>
                                     <div class="col-4 single-select game-side tail gmimg" data-active="scissor">
                                         <img src="<?= base_url() ?>assets/images/game/scissor.png" alt="game-image">
-                                        <p class="game-score scissor">0</p>
+                                        <p class="game-score"><span class="scissor">0</span>  <span data-key="scissor" class="close_btn">x</span> </p>
                                     </div>
                                 </div>
                             </div>
